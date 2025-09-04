@@ -1,0 +1,38 @@
+ 1. Liste todos os usuários e o número total de posts que cada um fez. Feito com o auxílio de IA
+SELECT 
+  users.id,               -- ID do usuário
+  users.name,             -- nome do usuário
+  COUNT(posts.id) AS total_posts  -- Mostrar quantos posts o usuário fez, nomeando a coluna como total_posts
+FROM 
+  users                   -- Tabela principal de usuários
+LEFT JOIN 
+  posts ON users.id = posts.user_id  -- Tem o intuito de mostrar os posts relacionados ao usuário (pode não ter posts, por isso LEFT JOIN)
+GROUP BY 
+  users.id, users.name    -- Tem o objetivo de agrupar os resultados por usuário para contar posts por usuário
+ORDER BY 
+  users.id;               -- Ordena o resultado pelo ID do usuário (opcional)
+
+
+2. Liste os posts que não têm comentários.
+SELECT 
+  posts.id,               -- Selecionar o ID do post
+  posts.title             -- Selecionar o título do post
+FROM 
+  posts                   -- Tabela principal dos posts
+LEFT JOIN 
+  comments ON posts.id = comments.post_id  -- Tem o objetivo de juntar os comentários relacionados ao post
+WHERE 
+  comments.id IS NULL     -- Filtra apenas posts que não possuem comentários (nenhuma correspondência no join)
+ORDER BY 
+  posts.id;               -- Ordena pelo ID do post (opcional)
+
+
+3. Liste os 5 posts mais recentes, mostrando título e data de criação.
+SELECT 
+  title,                  -- Selecionar o título do post
+  created_at              -- Selecionar a data de criação do post
+FROM 
+  posts                   -- Tabela dos posts
+ORDER BY 
+  created_at DESC         -- Ordena do mais recente para o mais antigo
+LIMIT 5;                  -- Limita o resultado aos 5 primeiros registros
