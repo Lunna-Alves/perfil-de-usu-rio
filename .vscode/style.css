@@ -1,0 +1,90 @@
+/* Reset visual e centralização do card */
+body {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  background-image: url(../assets-img/bg-desktop.jpg); /* cor de fundo suave */
+  font-family: Arial, sans-serif; 
+  background-size: cover 
+}
+
+/* Estrutura do card */
+.card {
+  background-color: #ffffff; 
+  width: 320px; 
+  padding: 20px; 
+  border-radius: 16px; /* cantos arredondados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra suave */
+  display: flex; 
+  flex-direction: column;
+  gap: 12px; /* espaçamento interno */
+}
+
+/* Cabeçalho com avatar e infos */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar circular */
+.avatar {
+  width: 60px; /* tamanho do avatar */
+  height: 60px; /* tamanho do avatar */
+  border-radius: 50%; /* círculo */
+  background-color: black; /* azul de destaque */
+  color: #fff; /* texto branco */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 22px; /* tamanho do texto */
+  font-weight: bold; /* negrito */
+  text-transform: uppercase; /* deixar iniciais maiúsculas */
+  
+}
+
+/* Área de infos (nome e email) */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Área de botões */
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12px;
+}
+
+.actions button { /*ação do botão*/
+  flex: 1; /* ocupa espaço igualmente */
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:0.3s;
+}
+
+/* Botão de seguir em azul */
+.actions .follow {
+  background-color: #007bff;
+  color: #fff;
+
+}
+.actions .follow:hover { 
+  background-color: #0056b3; /*cor da transição*/
+}
+
+/* Botão de mensagem neutro */
+.actions .message {
+  background-color: #f0f0f0;
+  color: black;
+}
+.actions .message:hover { 
+  background-color: #e0e0e0; /*cor da transição*/
+}
